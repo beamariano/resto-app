@@ -17,7 +17,7 @@ div {
 .App {
   padding: 2%;
   text-align: center;
-  width: 120vh;
+  width: 100vw;
   margin: auto;
   display: flex;
   flex-direction: column;
