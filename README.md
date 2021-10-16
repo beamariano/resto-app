@@ -21,5 +21,5 @@ npm install
 - react-redux
 
 ## To Run Application
-npm run start
-​​Open http://localhost:3000 to view it in your browser.
+- npm run start
+- Open http://localhost:3000 to view it in your browser.
