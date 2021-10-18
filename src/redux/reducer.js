@@ -78,6 +78,7 @@ const reducer = (state = initialState, action) => {
           item.name = action.payload.name;
           item.price = action.payload.price;
         }
+        return item;
       });
       console.log(allItems);
       return { ...state, items: allItems };
@@ -98,8 +99,8 @@ const reducer = (state = initialState, action) => {
       console.log(action.payload, "is in cart");
       return { ...state, cartItems: [...state.cartItems, action.payload] };
 
-    case "UPDATE_CART":
-      console.log("updated qty", action.payload);
+    // case "UPDATE_CART":
+    //   console.log("updated qty", action.payload);
     // let updatedItem = state.cartItems.slice(0);
     // updatedItem.map((item) => {
     //   if (item.name === action.payload.name) {

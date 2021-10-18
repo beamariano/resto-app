@@ -1,11 +1,10 @@
-import { useSelector, useDispatch } from "react-redux";
-import { useState, useEffect } from "react";
-import { connect } from "react-redux";
+import { useDispatch } from "react-redux";
+import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import Button from "react-bootstrap/Button";
 
 const AddItemForm = (props) => {
-  const menuItems = useSelector((state) => state.list);
+  // const menuItems = useSelector((state) => state.list);
   const dispatch = useDispatch();
 
   const [name, setNewItemName] = useState("");
@@ -24,13 +23,6 @@ const AddItemForm = (props) => {
     setNewId("");
     setNewStatus("");
   };
-
-  // const handleChange = (e) => {
-  //   const value = e.target.value;
-  //   let test = { [e.target.name]: value };
-  //   console.log("This was passed: " + value);
-  //   setNewItemDetails(test);
-  // };
 
   const onClickAddHandler = () => {
     let itemDetails = { id, name, price, category, image, status };

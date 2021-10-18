@@ -1,8 +1,7 @@
 import "./App.css";
 import { Route, Link } from "react-router-dom";
-import { connect } from "react-redux";
 import { useSelector, useDispatch } from "react-redux";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 import CustomDropdown from "./components/CustomDropdown";
 import AddItemForm from "./components/AddItemForm";
@@ -31,7 +30,7 @@ const App = () => {
   // END OF DISPLAY SECTION //
 
   // START OF CART SECTION
-  const currentCartItems = useSelector((state) => state.cartItems);
+  // const currentCartItems = useSelector((state) => state.cartItems);
 
   const checkItemCart = (newOrder) => {
     console.log(newOrder, "in f");
@@ -64,10 +63,6 @@ const App = () => {
       itemToEditDetails
     );
   };
-
-  // const [defaultItemDetails, setDefaultItemDetails] = useState([
-  //   itemToEdit.name,
-  // ]);
 
   const [name, setEditedItemName] = useState(itemToEdit.name);
   const [price, setEditedItemPrice] = useState(itemToEdit.price);
@@ -216,13 +211,14 @@ const App = () => {
           </div>
           <div className="menuContainer">
             <div className="items-display-container">
-              {showOnlyDisplayedItems.length == 0 ? (
+              {showOnlyDisplayedItems.length === 0 ? (
                 <div className="empty-display">
                   <h1>NO ITEMS TO DISPLAY</h1>
                 </div>
               ) : (
-                showOnlyDisplayedItems.map((item) => (
+                showOnlyDisplayedItems.map((item, index) => (
                   <ItemBox
+                    key={index}
                     items={item}
                     id={item.id}
                     name={item.name}
@@ -231,11 +227,8 @@ const App = () => {
                     description={item.description}
                     image={item.image}
                     status={item.status}
-                    //onAddToCart={onAddToCart}
                     checkItemCart={checkItemCart}
                     editItem={editItem}
-                    // cart={cart}
-
                     handleClose={handleClose}
                     handleShow={handleClose}
                   />

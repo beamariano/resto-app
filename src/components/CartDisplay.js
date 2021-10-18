@@ -1,7 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
-import { connect } from "react-redux";
 
 import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
@@ -15,7 +14,7 @@ const CartDisplay = () => {
   useEffect(() => {
     let total = 0;
     cart.map((cartItem) => {
-      total += cartItem.quantity * cartItem.price;
+      return (total += cartItem.quantity * cartItem.price);
     });
     setCartTotal(total);
   }, [cart]);
@@ -30,7 +29,7 @@ const CartDisplay = () => {
         <h2>Cart Items</h2>
       </div>
       <div className="cart-items">
-        {cart.length == 0 ? (
+        {cart.length === 0 ? (
           <div className="empty-display">
             <p>NO ITEMS TO DISPLAY</p>
           </div>
@@ -44,9 +43,9 @@ const CartDisplay = () => {
               </tr>
             </thead>
             <tbody>
-              {cart.map((cart) => {
+              {cart.map((cart, index) => {
                 return (
-                  <tr>
+                  <tr key={index}>
                     <td>{cart.quantity}</td>
                     <td>
                       {cart.name} @ PHP {cart.price}
